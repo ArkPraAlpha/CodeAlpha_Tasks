@@ -1,4 +1,4 @@
-"""All charts (matplotlib only). Every function saves a PNG and returns its path."""
+# All charts (matplotlib only). Every function saves a PNG and returns its path.
 from pathlib import Path
 
 import matplotlib

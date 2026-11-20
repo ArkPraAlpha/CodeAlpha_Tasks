@@ -1,4 +1,4 @@
-"""Turn the numbers into plain-language findings and a Markdown report."""
+# Turn the numbers into plain-language findings and a Markdown report. 
 from datetime import datetime
 
 
@@ -14,7 +14,7 @@ def _md_table(df, floatfmt="{:.2f}"):
 
 
 def net_sentiment(series):
-    """Net Sentiment Score = % positive - % negative."""
+    # Net Sentiment Score = % positive - % negative.# 
     return ((series == "positive").mean() - (series == "negative").mean()) * 100
 
 

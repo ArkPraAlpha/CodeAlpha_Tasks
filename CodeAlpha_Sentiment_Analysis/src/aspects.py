@@ -1,11 +1,11 @@
-"""Aspect-based sentiment analysis (ABSA).
+# Aspect-based sentiment analysis (ABSA).
 
-Overall sentiment hides detail: "Great design, but delivery was awful" is mixed.
-Here each text is split into clauses (at punctuation and at words like 'but' /
-'however'); a clause is assigned to every aspect whose keywords it contains, and
-scored on its own with VADER. This shows WHICH parts of the product people like or
-dislike.
-"""
+# Overall sentiment hides detail: "Great design, but delivery was awful" is mixed.
+# Here each text is split into clauses (at punctuation and at words like 'but' /
+# 'however'); a clause is assigned to every aspect whose keywords it contains, and
+# scored on its own with VADER. This shows WHICH parts of the product people like or
+# dislike.
+# 
 import json
 import re
 
@@ -29,7 +29,7 @@ WORD_RE = re.compile(r"[a-z']+")
 
 
 def load_aspects(path=None):
-    """Use built-in aspects or a JSON file like {"battery": ["battery", "charge"], ...}."""
+    # Use built-in aspects or a JSON file like {"battery": ["battery", "charge"], ...}.# 
     if path:
         with open(path, encoding="utf-8") as handle:
             raw = json.load(handle)
@@ -38,7 +38,7 @@ def load_aspects(path=None):
 
 
 def extract_aspect_sentiment(df, aspects=None, text_col="text_clean"):
-    """Long table: one row per (text, aspect) mention with its own sentiment score."""
+    # Long table: one row per (text, aspect) mention with its own sentiment score.# 
     aspects = aspects or load_aspects()
     records = []
     for idx, text, source, when in zip(df.index, df[text_col], df["source"], df["date"]):

@@ -1,4 +1,4 @@
-"""Topic modelling (LDA) to discover what people talk about in negative texts."""
+# Topic modelling (LDA) to discover what people talk about in negative texts. 
 import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer

@@ -1,9 +1,9 @@
-"""Emotion detection with a lexicon (Plutchik-style emotions, as in the NRC lexicon).
+# Emotion detection with a lexicon (Plutchik-style emotions, as in the NRC lexicon).
 
-A compact built-in lexicon is included so the project works offline. For better
-coverage, download the NRC Emotion Lexicon (word-level file) and pass its path
-with --nrc-lexicon; its entries are merged into the built-in lexicon.
-"""
+# A compact built-in lexicon is included so the project works offline. For better
+# coverage, download the NRC Emotion Lexicon (word-level file) and pass its path
+# with --nrc-lexicon; its entries are merged into the built-in lexicon.
+# 
 import re
 from collections import defaultdict
 
@@ -44,7 +44,7 @@ TOKEN_RE = re.compile(r"[a-z]+(?:'[a-z]+)?")
 
 
 def load_nrc_lexicon(path):
-    """Merge the NRC word-level lexicon (word <TAB> emotion <TAB> 0/1) into LEXICON."""
+    # Merge the NRC word-level lexicon (word <TAB> emotion <TAB> 0/1) into LEXICON.# 
     added = 0
     with open(path, encoding="utf-8") as handle:
         for line in handle:
@@ -73,7 +73,7 @@ def emotion_counts(text):
 
 
 def detect_emotions(texts):
-    """Return a DataFrame with one column per emotion (word counts) plus 'dominant_emotion'."""
+    # Return a DataFrame with one column per emotion (word counts) plus 'dominant_emotion'.# 
     rows = [emotion_counts(t) for t in texts]
     df = pd.DataFrame(rows, columns=EMOTIONS).fillna(0.0)
     totals = df.sum(axis=1)

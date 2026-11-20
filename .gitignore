@@ -26,7 +26,6 @@ ENV/
 .env/
 .ENV/
 
-# ─── Jupyter / IPython ────────────────────────────────────────────────────────
 .ipynb_checkpoints/
 *.ipynb
 
@@ -47,23 +46,5 @@ CodeAlpha_Sentiment_Analysis/outputs/figures/
 CodeAlpha_Sentiment_Analysis/outputs/models/
 CodeAlpha_Sentiment_Analysis/outputs/checkpoints/
 
-# ─── IDE / editor ─────────────────────────────────────────────────────────────
-.vscode/
-.idea/
-*.code-workspace
-
-# ─── OS artefacts ─────────────────────────────────────────────────────────────
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# ─── Testing / coverage ───────────────────────────────────────────────────────
 .pytest_cache/
-.coverage
-htmlcov/
-coverage.xml
 
-# ─── Miscellaneous ────────────────────────────────────────────────────────────
-*.log
-*.tmp
-*.bak

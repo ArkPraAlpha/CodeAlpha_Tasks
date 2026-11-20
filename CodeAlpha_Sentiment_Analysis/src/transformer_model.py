@@ -1,10 +1,10 @@
-"""Optional deep-learning models from Hugging Face (needs: pip install transformers torch).
+# Optional deep-learning models from Hugging Face (needs: pip install transformers torch).
 
-* Sentiment: cardiffnlp/twitter-roberta-base-sentiment-latest (positive/neutral/negative)
-* Emotion:   j-hartmann/emotion-english-distilroberta-base (7 emotions)
+# * Sentiment: cardiffnlp/twitter-roberta-base-sentiment-latest (positive/neutral/negative)
+# * Emotion:   j-hartmann/emotion-english-distilroberta-base (7 emotions)
 
-The first call downloads the model (a few hundred MB) and needs internet access.
-"""
+# The first call downloads the model (a few hundred MB) and needs internet access.
+# 
 import numpy as np
 import pandas as pd
 
@@ -21,12 +21,12 @@ def _pipeline(task_model, device):
 
 def transformer_sentiment(texts, model_name="cardiffnlp/twitter-roberta-base-sentiment-latest",
                           batch_size=32, device=-1, chunk_size=500, cache_dir=None):
-    """Return (signed score = P(pos) - P(neg), predicted label).
+    # Return (signed score = P(pos) - P(neg), predicted label).
 
-    Texts are processed in chunks of `chunk_size`. If `cache_dir` is given, every
-    finished chunk is saved there, so an interrupted run continues at the first
-    unfinished chunk instead of starting over.
-    """
+    # Texts are processed in chunks of `chunk_size`. If `cache_dir` is given, every
+    # finished chunk is saved there, so an interrupted run continues at the first
+    # unfinished chunk instead of starting over.
+    # 
     import joblib
     from pathlib import Path
 
@@ -54,7 +54,7 @@ def transformer_sentiment(texts, model_name="cardiffnlp/twitter-roberta-base-sen
 
 def transformer_emotions(texts, model_name="j-hartmann/emotion-english-distilroberta-base",
                          batch_size=32, device=-1):
-    """Return a DataFrame of emotion probabilities plus 'dominant_emotion'."""
+    # Return a DataFrame of emotion probabilities plus 'dominant_emotion'.# 
     clf = _pipeline(model_name, device)
     rows = [{r["label"].lower(): r["score"] for r in res}
             for res in clf(list(texts), batch_size=batch_size)]

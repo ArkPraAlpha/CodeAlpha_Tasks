@@ -1,10 +1,10 @@
-"""Checkpoints: save the result of every expensive step so a stopped run can resume.
+# Checkpoints: save the result of every expensive step so a stopped run can resume.
 
-Each finished step writes  <output-dir>/checkpoints/<step>.joblib  and is ticked in
-checkpoints/state.json. When the same command is run again, ticked steps are loaded
-instead of recomputed. If the settings (input file, options, ...) change, old
-checkpoints are discarded automatically so results never get mixed.
-"""
+# Each finished step writes  <output-dir>/checkpoints/<step>.joblib  and is ticked in
+# checkpoints/state.json. When the same command is run again, ticked steps are loaded
+# instead of recomputed. If the settings (input file, options, ...) change, old
+# checkpoints are discarded automatically so results never get mixed.
+# 
 import json
 import os
 import shutil
@@ -57,7 +57,7 @@ class Checkpoint:
         return joblib.load(self.dir / f"{step}.joblib")
 
     def run(self, step, title, compute):
-        """Load the step from its checkpoint, or compute and save it."""
+        # Load the step from its checkpoint, or compute and save it.# 
         if self.done(step):
             print(f"  [x] {title}  (loaded from checkpoint {self.state['steps'][step]})")
             return self.load(step)
@@ -68,7 +68,7 @@ class Checkpoint:
         return result
 
     def show(self, steps):
-        """Print the checklist."""
+        # Print the checklist.# 
         print("Progress checklist:")
         for key, title in steps:
             print(f"  [{'x' if self.done(key) else ' '}] {title}")

@@ -1,13 +1,13 @@
-"""Data collection: CSV/Excel files (e.g. Amazon reviews), news RSS feeds, and a
-built-in synthetic demo dataset so the project runs out of the box.
+# Data collection: CSV/Excel files (e.g. Amazon reviews), news RSS feeds, and a
+# built-in synthetic demo dataset so the project runs out of the box.
 
-Every loader returns a DataFrame with the same columns:
-    text    - the review / tweet / headline
-    rating  - numeric star rating (NaN if unavailable)
-    label   - ground-truth sentiment (positive/neutral/negative, NaN if unknown)
-    date    - datetime (NaT if unavailable)
-    source  - where the text came from (amazon, twitter, news, ...)
-"""
+# Every loader returns a DataFrame with the same columns:
+#     text    - the review / tweet / headline
+#     rating  - numeric star rating (NaN if unavailable)
+#     label   - ground-truth sentiment (positive/neutral/negative, NaN if unknown)
+#     date    - datetime (NaT if unavailable)
+#     source  - where the text came from (amazon, twitter, news, ...)
+# 
 import random
 import re
 from datetime import date
@@ -18,11 +18,11 @@ import pandas as pd
 STANDARD_COLUMNS = ["text", "rating", "label", "date", "source"]
 
 
-# ----------------------------------------------------------------------------
+
 # Labels
-# ----------------------------------------------------------------------------
+
 def rating_to_label(rating, binary=False):
-    """1-2 stars -> negative, 3 -> neutral, 4-5 -> positive."""
+    # 1-2 stars -> negative, 3 -> neutral, 4-5 -> positive.# 
     if pd.isna(rating):
         return np.nan
     if binary:
@@ -44,9 +44,9 @@ def _normalize_label(value):
     return mapping.get(v, np.nan)
 
 
-# ----------------------------------------------------------------------------
+
 # File loader (Amazon reviews, tweets, any CSV/Excel with a text column)
-# ----------------------------------------------------------------------------
+
 def load_file(path, text_col, rating_col=None, date_col=None, source_col=None,
               label_col=None, source_name="file", nrows=None):
     if str(path).lower().endswith((".xlsx", ".xls")):
@@ -74,9 +74,9 @@ def load_file(path, text_col, rating_col=None, date_col=None, source_col=None,
     return df[STANDARD_COLUMNS]
 
 
-# ----------------------------------------------------------------------------
+
 # News loader (RSS) - no API key required
-# ----------------------------------------------------------------------------
+
 DEFAULT_NEWS_FEEDS = [
     "http://feeds.bbci.co.uk/news/business/rss.xml",
     "http://feeds.bbci.co.uk/news/technology/rss.xml",
@@ -85,7 +85,7 @@ DEFAULT_NEWS_FEEDS = [
 
 
 def fetch_news(feeds=None, keyword=None, max_items=300):
-    """Collect headlines + summaries from RSS feeds (optionally filter by keyword)."""
+    # Collect headlines + summaries from RSS feeds (optionally filter by keyword).# 
     try:
         import feedparser
     except ImportError as exc:
@@ -110,9 +110,9 @@ def fetch_news(feeds=None, keyword=None, max_items=300):
     return df
 
 
-# ----------------------------------------------------------------------------
+
 # Synthetic demo data (reviews + tweets + news headlines over 12 months)
-# ----------------------------------------------------------------------------
+
 PHRASES = {
     "quality": {
         "pos": ["The build quality is excellent and feels very durable",

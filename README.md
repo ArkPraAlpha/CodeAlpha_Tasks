@@ -1,10 +1,10 @@
-# 📊 CodeAlpha Data Analytics Internship Projects
+# CodeAlpha Data Analytics Internship Projects
 
 > Projects completed during my **Data Analytics Internship at CodeAlpha** — covering web scraping and advanced sentiment analysis with machine learning.
 
 ---
 
-## 👨‍💻 Intern Information
+## Intern Information
 
 | Field | Details |
 |-------|---------|
@@ -15,9 +15,9 @@
 
 ---
 
-## 📌 Completed Tasks
+## Completed Tasks
 
-### ✅ Task 1 — Web Scraping ([`CodeAlpha_Web_Scraping/`](./CodeAlpha_Web_Scraping))
+### Task 1 — Web Scraping ([`CodeAlpha_Web_Scraping/`](./CodeAlpha_Web_Scraping))
 
 A Python scraper that automatically collects data for all **1,000 books** on [Books to Scrape](https://books.toscrape.com/).
 
@@ -26,7 +26,7 @@ A Python scraper that automatically collects data for all **1,000 books** on [Bo
 - Automatic retries (up to 3×) with polite delays between requests
 - Output saved as both **CSV** and **Excel**
 
-### ✅ Task 4 — Sentiment Analysis ([`CodeAlpha_Sentiment_Analysis/`](./CodeAlpha_Sentiment_Analysis))
+### Task 4 — Sentiment Analysis ([`CodeAlpha_Sentiment_Analysis/`](./CodeAlpha_Sentiment_Analysis))
 
 An advanced multi-model sentiment analysis pipeline for Amazon reviews, tweets, and news.
 
@@ -41,7 +41,7 @@ An advanced multi-model sentiment analysis pipeline for Amazon reviews, tweets, 
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 | Category | Libraries |
 |----------|-----------|
@@ -54,7 +54,7 @@ An advanced multi-model sentiment analysis pipeline for Amazon reviews, tweets, 
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 CodeAlpha/
@@ -87,7 +87,7 @@ CodeAlpha/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Task 1 — Web Scraping
 ```bash
@@ -114,7 +114,7 @@ python main.py --predict "Great quality but the delivery was awful"
 
 ---
 
-## 🎯 Learning Outcomes
+## Learning Outcomes
 
 - Real-world web scraping with pagination, retries, and polite crawling
 - NLP pipeline design: preprocessing → lexicon → ML → transformer → ensemble
@@ -125,16 +125,16 @@ python main.py --predict "Great quality but the delivery was awful"
 
 ---
 
-## 🙏 Acknowledgement
+## Acknowledgement
 
 I sincerely thank **CodeAlpha** for providing this internship opportunity and helping me build practical skills in Data Analytics and Machine Learning.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Ark Prajapati**
-GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+GitHub: [@ArkPraAlpha](https://github.com/ArkPraAlpha)
 
 ---
 

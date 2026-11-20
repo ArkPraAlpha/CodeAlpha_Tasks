@@ -1,4 +1,4 @@
-"""Sentiment over time, anomaly detection and root-cause hints."""
+# Sentiment over time, anomaly detection and root-cause hints. 
 import numpy as np
 import pandas as pd
 
@@ -20,7 +20,7 @@ def sentiment_over_time(df, score_col="ensemble_score", label_col="sentiment", f
 
 
 def detect_anomalies(ts, z_threshold=2.0):
-    """Flag periods whose mean sentiment is unusually high/low (z-score)."""
+    # Flag periods whose mean sentiment is unusually high/low (z-score).# 
     ts = ts.copy()
     std = ts["mean_score"].std(ddof=0)
     ts["z_score"] = 0.0 if len(ts) < 4 or std == 0 else (ts["mean_score"] - ts["mean_score"].mean()) / std
@@ -30,7 +30,7 @@ def detect_anomalies(ts, z_threshold=2.0):
 
 
 def explain_anomalies(ts, aspect_df, freq="M", min_mentions=3):
-    """For each anomalous period, find the aspect that drove the change."""
+    # For each anomalous period, find the aspect that drove the change.# 
     out = []
     for _, row in ts[ts["anomaly"]].iterrows():
         info = {"period": row["period"], "direction": row["direction"],

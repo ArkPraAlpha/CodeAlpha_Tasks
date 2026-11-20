@@ -1,10 +1,10 @@
-"""Text cleaning utilities.
+# Text cleaning utilities.
 
-Two versions of the text are kept:
-  * text_clean - light cleaning only (keeps capitals, punctuation, emojis) because
-                 VADER and transformers use those signals.
-  * text_ml    - lower-cased letters only, used by the TF-IDF machine-learning model.
-"""
+# Two versions of the text are kept:
+#   * text_clean - light cleaning only (keeps capitals, punctuation, emojis) because
+#                  VADER and transformers use those signals.
+#   * text_ml    - lower-cased letters only, used by the TF-IDF machine-learning model.
+# 
 import html
 import re
 
@@ -17,7 +17,7 @@ WS_RE = re.compile(r"\s+")
 
 
 def clean_text(text):
-    """Remove HTML, URLs and @mentions; keep the words of hashtags."""
+    # Remove HTML, URLs and @mentions; keep the words of hashtags.# 
     if not isinstance(text, str):
         return ""
     text = html.unescape(text)
@@ -29,8 +29,8 @@ def clean_text(text):
 
 
 def normalize_for_ml(text):
-    """Lower-case and keep only letters/apostrophes (stop-words are kept on
-    purpose, because words like 'not' flip the meaning of a sentence)."""
+    # Lower-case and keep only letters/apostrophes (stop-words are kept on
+    # purpose, because words like 'not' flip the meaning of a sentence). 
     text = clean_text(text).lower()
     text = re.sub(r"[^a-z'\s]", " ", text)
     return WS_RE.sub(" ", text).strip()

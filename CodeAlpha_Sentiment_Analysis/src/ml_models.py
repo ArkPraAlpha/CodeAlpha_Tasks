@@ -1,12 +1,12 @@
-"""Supervised machine learning: TF-IDF + classifier.
+# Supervised machine learning: TF-IDF + classifier.
 
-* Several classifiers are benchmarked with cross-validation.
-* Logistic Regression is used to produce a sentiment score for every row. For rows
-  that have a ground-truth label the score comes from cross_val_predict (so the model
-  never scores a text it was trained on - no data leakage); unlabeled rows (e.g. news,
-  tweets without stars) are scored by a model trained on all labeled rows.
-* The most influential words per class are exported for interpretation.
-"""
+# * Several classifiers are benchmarked with cross-validation.
+# * Logistic Regression is used to produce a sentiment score for every row. For rows
+#   that have a ground-truth label the score comes from cross_val_predict (so the model
+#   never scores a text it was trained on - no data leakage); unlabeled rows (e.g. news,
+#   tweets without stars) are scored by a model trained on all labeled rows.
+# * The most influential words per class are exported for interpretation.
+# 
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -64,7 +64,7 @@ def top_features(model, n=15):
 
 
 def fit_ml_scores(df, text_col="text_ml", label_col="label", seed=42, n_splits=5):
-    """Return dict(score, pred, benchmark, features, model) or None if there is too little labeled data."""
+    # Return dict(score, pred, benchmark, features, model) or None if there is too little labeled data.# 
     labeled = df[label_col].notna()
     if labeled.sum() < 30 or df.loc[labeled, label_col].nunique() < 2:
         print("  Not enough labeled data for supervised model - skipping ML.")
